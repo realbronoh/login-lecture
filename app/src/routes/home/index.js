@@ -5,8 +5,9 @@ const router = express.Router();    // router 사용
 
 const ctrl = require("./home.ctrl"); // controller import : 함수(기능) 분리
 
-router.get("/", ctrl.renderHome);
-router.get("/login", ctrl.renderLogin);
+router.get("/", ctrl.output.home);
+router.get("/login", ctrl.output.login);
+router.post("/login", ctrl.process.login);
 
 module.exports = router;    // 내보내기
 
