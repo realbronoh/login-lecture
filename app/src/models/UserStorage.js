@@ -14,13 +14,25 @@ class UserStorage {
         const users = this.#users;       // ...fields: 배열로 인자들 받아옴
         const newUsers = fields.reduce( (newUsers, field) => {
             // fields를 순회하면서(각 원소는 field)
-            // 아래 내용 수행
             if (users.hasOwnProperty(field)) {
                 newUsers[field] = users[field];
             }
             return newUsers;
         }, {});     // arr.reduce(func, {})에서... {} == newUsers의 초기값
         return newUsers;       
+    }
+
+    static getUserInfo(id) {
+        const users = this.#users;
+        const idx = users.id.indexOf(id);   // users.id 배열에서 파라미터 'id'의 인덱스
+        const userKeys = Object.keys(users); // [id, psword, name]
+        const userInfo = userKeys.reduce((newUser, info) => {
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+
+        return userInfo;
+
     }
 };
 
