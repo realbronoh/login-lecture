@@ -9,6 +9,9 @@ const output = {
     },
     login: (req, res) => {   // "/login"에서 "/"는 꼭 넣어준다!
         res.render("home/login");
+    },
+    register: (req, res) => {
+        res.render("home/register");
     }
 };
 
