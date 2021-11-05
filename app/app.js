@@ -7,8 +7,11 @@ const home = require("./src/routes/home");
 // 앱 세팅
 app.set("views", "./src/views");     // 처음에 view를 ./src/views폴더로 지정함 
 app.set("view engine", "ejs");  // ejs: 많이 사용하는 view 엔진
+app.use(express.static(`${__dirname}/src/public`)); // 정적경로 추가!! 이 안에 있는 것 그냥 접근 가능
+
 
 app.use("/", home);   // use -> 미들웨어를 등록해주는 메서드
+
 
 
 module.exports = app;
